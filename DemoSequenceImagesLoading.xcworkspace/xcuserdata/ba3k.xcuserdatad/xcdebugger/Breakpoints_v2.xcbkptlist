@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "BCFD41C5-3364-413F-B5BA-5B60C25F413C"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "52A8A336-A413-4CDC-A250-3C38F913E0AB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DemoSequenceImagesLoading/DemoSequenceImagesLoading/Components/SequenceImagesLoading/SequenceImagesLoading.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "animateLoadImage()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "52A8A336-A413-4CDC-A250-3C38F913E0AB - f548ecf1deb9c2c5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DemoSequenceImagesLoading.SequenceImagesLoading.animateLoadImage() -&gt; ()"
+                  moduleName = "DemoSequenceImagesLoading"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ba3k/Documents/Work/Thebeckz007/DemoSequenceImagesLoading/DemoSequenceImagesLoading/DemoSequenceImagesLoading/Components/SequenceImagesLoading/SequenceImagesLoading.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "136"
+                  endingLineNumber = "136"
+                  offsetFromSymbolStart = "648">
+               </Location>
+               <Location
+                  uuid = "52A8A336-A413-4CDC-A250-3C38F913E0AB - f548ecf1deb9c2e2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DemoSequenceImagesLoading.SequenceImagesLoading.animateLoadImage() -&gt; ()"
+                  moduleName = "DemoSequenceImagesLoading"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ba3k/Documents/Work/Thebeckz007/DemoSequenceImagesLoading/DemoSequenceImagesLoading/DemoSequenceImagesLoading/Components/SequenceImagesLoading/SequenceImagesLoading.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "135"
+                  endingLineNumber = "135"
+                  offsetFromSymbolStart = "60">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "559942F7-2889-4E6A-8880-04C83A6AB034"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DemoSequenceImagesLoading/DemoSequenceImagesLoading/Screens/HomePage/View/HomePageView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "559942F7-2889-4E6A-8880-04C83A6AB034 - 943e2a3456a13c82"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Button&lt;DemoSequenceImagesLoading.syncButton&gt;, DemoSequenceImagesLoading.textView)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Color, DemoSequenceImagesLoading.SequenceImagesLoadingView, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Button&lt;DemoSequenceImagesLoading.syncButton&gt;, DemoSequenceImagesLoading.textView)&gt;&gt;)&gt; in DemoSequenceImagesLoading.HomePageView.body.getter : some"
+                  moduleName = "DemoSequenceImagesLoading"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ba3k/Documents/Work/Thebeckz007/DemoSequenceImagesLoading/DemoSequenceImagesLoading/DemoSequenceImagesLoading/Screens/HomePage/View/HomePageView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "132">
+               </Location>
+               <Location
+                  uuid = "559942F7-2889-4E6A-8880-04C83A6AB034 - 17b3c9d62154bde8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.offset(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0, DemoSequenceImagesLoading.textView)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Color, DemoSequenceImagesLoading.SequenceImagesLoadingView, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.offset(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0, DemoSequenceImagesLoading.textView)&gt;&gt;)&gt; in DemoSequenceImagesLoading.HomePageView.body.getter : some"
+                  moduleName = "DemoSequenceImagesLoading"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ba3k/Documents/Work/Thebeckz007/DemoSequenceImagesLoading/DemoSequenceImagesLoading/DemoSequenceImagesLoading/Screens/HomePage/View/HomePageView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "132">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
