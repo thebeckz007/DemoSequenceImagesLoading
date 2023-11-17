@@ -7,6 +7,8 @@
 
 import XCTest
 
+@testable import DemoSequenceImagesLoading
+
 final class SequenceImagesLoadingTest: XCTestCase {
 
     override func setUpWithError() throws {

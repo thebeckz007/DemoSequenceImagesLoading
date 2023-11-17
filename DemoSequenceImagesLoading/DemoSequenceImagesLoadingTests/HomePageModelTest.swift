@@ -7,6 +7,8 @@
 
 import XCTest
 
+@testable import DemoSequenceImagesLoading
+
 final class HomePageModelTest: XCTestCase {
 
     override func setUpWithError() throws {
