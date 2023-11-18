@@ -7,30 +7,35 @@
 import Foundation
 
 // MARK: completion block
-// Define completion block
 typealias getDataWithCachingCompletion = (_ data: Data?) -> Void;
 typealias saveDataWithCachingCompletion = () -> Void;
 
 // MARK: Protocol CachingFileDataProtocol
-// Protocol CachingFileDataProtocol
+/// Protocol caching file data
 protocol CachingFileDataProtocol {
+    /// Get a data file from cache by file name
+    ///
+    /// - parameter filename: The file name of file what to get data
+    /// - parameter inMainThread: If true, we try to perform the completion block of data responding in main thread
+    /// - parameter completion: this is a getDataWithCachingCompletion block, it means a block of data responding
     func getDataFilebyFileName(_ filename: String, inMainThread: Bool, completion: @escaping getDataWithCachingCompletion)
+    
+    /// Clear caching storage
     func clearCaching()
 }
 
 // MARK: Class DataWithCaching
-// Class DataWithCaching
+/// NSDataWithCaching class to handle a caching data into memory
 class NSDataWithCaching: NSObject, CachingFileDataProtocol {
-    // Inint shared instance as a Singleton instance
+    /// a shared instance of NSDataWithCaching as singleton instance
     static let sharedInstance = NSDataWithCaching();
     
-    // Init a cuncurrent queue for performing Data caching task
+    /// a concurrent queue for performing Data caching task
     private let queueDataCaching: DispatchQueue = DispatchQueue(label: "__DATACACHING_QUEUE__", attributes: .concurrent);
     
-    // Init cachingData to store data
+    /// a instance object to cache data
     private var cachingData: [String: Data] = [String: Data]();
     
-    // Function read data file by file name
     func getDataFilebyFileName(_ filename: String, inMainThread: Bool = true, completion: @escaping getDataWithCachingCompletion) {
         // Declare finalCompletion as a final completion to perform this completion
         let finalCompletion: getDataWithCachingCompletion = { data in
@@ -66,14 +71,13 @@ class NSDataWithCaching: NSObject, CachingFileDataProtocol {
         }
     }
     
-    // Function ClearCaching
     func clearCaching() {
         self.threadSafe() {
             self.cachingData.removeAll();
         }
     }
     
-    // Function get data from caching by key of file
+    /// Function get data from caching by key of file
     private func getDataFromCaching(_ keyFile: String, completion: getDataWithCachingCompletion) {
         self.threadSafe() {
             if let data = self.cachingData[keyFile] {
@@ -84,7 +88,7 @@ class NSDataWithCaching: NSObject, CachingFileDataProtocol {
         }
     }
     
-    // Function store data to caching by key of file
+    /// Function store data to caching by key of file
     private func saveDataToCaching(_ keyFile: String, data: Data, completion: saveDataWithCachingCompletion) {
         self.threadSafe() {
             self.cachingData[keyFile] = data;

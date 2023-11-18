@@ -10,7 +10,7 @@ import Foundation
 //
 let TimeIntervalStepDebug: TimeInterval = 1.0
 
-// 
+//
 typealias getUserStepsDataCompletion = (_ steps: UInt?) -> Void;
 typealias getUsersActivityDataCompletion = (_ data: TimeInterval?) -> Void;
 

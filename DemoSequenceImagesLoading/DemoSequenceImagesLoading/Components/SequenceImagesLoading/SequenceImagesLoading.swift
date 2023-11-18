@@ -7,8 +7,14 @@
 import UIKit
 
 // MARK: Enum SequenceImageFileType
+/// List of image file type was supported to load sequence images
+///
+/// - note : For now, we just supported png, jpg image file
 public enum SequenceImageFileType : Int {
+    /// png image file
     case png = 1
+    
+    /// jpg image file
     case jpg = 2
     
     var name : String {
@@ -21,13 +27,19 @@ public enum SequenceImageFileType : Int {
     }
 }
 
-// MARK:
-// Define
 public typealias SequenceImagesAnimationCompletion = (Bool) -> Void
 
 // MARK: Protocol
+/// Protocol load sequence images
 protocol SequenceImagesLoadingProtocol {
+    /// Start excute loading sequence images as an animation
+    ///
+    /// - parameter duration: range of duration to animate
+    /// - parameter repeatTimes: It's a animating loop times. Note: if repeatTimes < 0, aniamtion will loop forever, if repeatTimes = 0, animation just 1 time and not repeat at all
+    /// - parameter completion: this block will be fired whenever an animation sequence images loading was completed
     func startAnimation(duration: TimeInterval, repeatTimes: Int, completion: SequenceImagesAnimationCompletion?)
+    
+    /// Force stop animating sequence images
     func stopAnimation()
 }
 
@@ -45,6 +57,10 @@ open class SequenceImagesLoading: UIImageView, SequenceImagesLoadingProtocol {
     fileprivate var dataCachingModule: CachingFileDataProtocol?
     fileprivate var timer: Timer?
     
+    /// Initialize a SequenceImagesLodaing instance
+    ///
+    /// - parameter sequenceImageFiles: list of sequence file. NOTE: It should be a full path of image file
+    /// - parameter dataCachingModule: a module to caching data file what conform with CachingFileDataProtocol protocol
     convenience init(sequenceImageFiles: [String], dataCachingModule: CachingFileDataProtocol) {
         self.init();
         
@@ -54,7 +70,12 @@ open class SequenceImagesLoading: UIImageView, SequenceImagesLoadingProtocol {
         preloadSequenceImages()
     }
     
-    //
+    /// Initialize a SequenceImagesLodaing instance
+    ///
+    /// - parameter sequenceImageFileNames: list of sequence file names
+    /// - parameter imageType: image file type. Note: png image file is by the default
+    /// - parameter inBundle: what bundle store these sequence images
+    /// - parameter dataCachingModule: a module to caching data file what conform with CachingFileDataProtocol protocol
     convenience init(sequenceImageFileNames: [String], imageType: SequenceImageFileType = .png, inBundle: Bundle, dataCachingModule: CachingFileDataProtocol) {
         // read data of all image animation filess in other queue
         var arrImageFiles: [String] = [String]()
@@ -68,10 +89,21 @@ open class SequenceImagesLoading: UIImageView, SequenceImagesLoadingProtocol {
         self.init(sequenceImageFiles: arrImageFiles, dataCachingModule: dataCachingModule)
     }
     
+    /// Initialize a SequenceImagesLodaing instance
+    ///
+    /// - parameter systemImageFileNames: list of sequence file names what was stored/ located in assets bundle
+    /// - parameter imageType: image file type. Note: png image file is by the default
+    /// - parameter dataCachingModule: a module to caching data file what conform with CachingFileDataProtocol protocol
     convenience init(systemImageFileNames: [String], imageType: SequenceImageFileType = .png, dataCachingModule: CachingFileDataProtocol) {
         self.init(sequenceImageFileNames: systemImageFileNames, imageType: imageType, inBundle: Bundle.main, dataCachingModule: dataCachingModule)
     }
     
+    /// Initialize a SequenceImagesLodaing instance
+    ///
+    /// - parameter sequenceImageFileNames: list of sequence file names
+    /// - parameter imageType: image file type. Note: png image file is by the default
+    /// - parameter inBundleName: bunlde name which bundle store these sequence images
+    /// - parameter dataCachingModule: a module to caching data file what conform with CachingFileDataProtocol protocol
     convenience init(sequenceImageFileNames: [String], imageType: SequenceImageFileType = .png, inBundleName: String, dataCachingModule: CachingFileDataProtocol) {
         // read data of all image animation filess in other queue
         let path = Bundle.main.path(forResource:inBundleName, ofType:"bundle")
@@ -80,19 +112,20 @@ open class SequenceImagesLoading: UIImageView, SequenceImagesLoadingProtocol {
         self.init(sequenceImageFileNames: sequenceImageFileNames, imageType: imageType, inBundle: bundleImages, dataCachingModule: dataCachingModule)
     }
     
-    //
+    // Trigger pre-loading sequence images
     private func preloadSequenceImages() {
+        self.loadSequenceImages()
+    }
+    
+    // Trigger loading sequence images
+    private func loadSequenceImages() {
         for pathFile in sequenceImageFiles {
             self.dataCachingModule?.getDataFilebyFileName(pathFile, inMainThread: true, completion: { (data) in
             })
         }
     }
     
-    /**
-     NOTE: Auto animate from previous index to next index
-     NOTE: if duration is zero, this progress should not animate.
-     NOTE: repeatTimes = -1: loop forever
-     */
+    // start animation
     open func startAnimation(duration: TimeInterval = 1.0, repeatTimes: Int = 0, completion: SequenceImagesAnimationCompletion?) {
         if self.sequenceImageFiles.count == 0 {
             return
