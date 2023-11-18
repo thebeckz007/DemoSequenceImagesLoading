@@ -7,14 +7,16 @@
 
 import Foundation
 
+//
 extension String {
-    // hash this string into key of string
+    // hash this string into as key of string
     internal func keyString() -> String {
         // NOTE: For now, key of file is itself
-        return self
+        return self.md5Hash()
     }
 }
 
+//
 extension String {
     internal func pathFileFromMainBundleWithExtension(extensionFile: String) -> String? {
         return self.pathFileInBundle(Bundle.main, withExtensionFile: extensionFile)

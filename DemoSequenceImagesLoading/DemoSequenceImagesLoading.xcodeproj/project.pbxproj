@@ -29,6 +29,7 @@
 		70C5FB6C2B07205D00BDF7F0 /* SequenceImagesLoadingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5FB6B2B07205D00BDF7F0 /* SequenceImagesLoadingTest.swift */; };
 		70C5FB6E2B07237700BDF7F0 /* HomePageModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5FB6D2B07237700BDF7F0 /* HomePageModelTest.swift */; };
 		70C5FB772B074BBB00BDF7F0 /* HomePageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7049CB172B059D0D00C5BA73 /* HomePageModel.swift */; };
+		70C5FB942B084FEB00BDF7F0 /* String+Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5FB932B084FEB00BDF7F0 /* String+Crypto.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		70C5FB692B07204400BDF7F0 /* HomePageViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewModelTest.swift; sourceTree = "<group>"; };
 		70C5FB6B2B07205D00BDF7F0 /* SequenceImagesLoadingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceImagesLoadingTest.swift; sourceTree = "<group>"; };
 		70C5FB6D2B07237700BDF7F0 /* HomePageModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageModelTest.swift; sourceTree = "<group>"; };
+		70C5FB932B084FEB00BDF7F0 /* String+Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Crypto.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				7049CB0E2B059D0D00C5BA73 /* NSThreadSafe.swift */,
+				70C5FB932B084FEB00BDF7F0 /* String+Crypto.swift */,
 				7049CB0D2B059D0D00C5BA73 /* String+File.swift */,
 				70C5FB592B05D0C100BDF7F0 /* String+Format.swift */,
 				70C5FB612B06775700BDF7F0 /* TimeInterval+String.swift */,
@@ -431,6 +434,7 @@
 				7049CB222B059D0D00C5BA73 /* HomePageView.swift in Sources */,
 				7049CB202B059D0D00C5BA73 /* HomePageViewModel.swift in Sources */,
 				70C5FB5A2B05D0C100BDF7F0 /* String+Format.swift in Sources */,
+				70C5FB942B084FEB00BDF7F0 /* String+Crypto.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
