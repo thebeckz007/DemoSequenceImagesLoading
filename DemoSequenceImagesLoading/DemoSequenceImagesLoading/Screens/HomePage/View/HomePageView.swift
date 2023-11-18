@@ -83,7 +83,7 @@ struct SequenceImagesLoadingUIImageView: UIViewRepresentable {
             arrImageFiles.append(strFileName)
         }
         
-        let result = SequenceImagesLoading(sequenceImageFileNames: arrImageFiles, imageType: .png, inBundleName: "Assets_Katespade_Activity")
+        let result = SequenceImagesLoading(sequenceImageFileNames: arrImageFiles, imageType: .png, inBundleName: "Assets_Katespade_Activity", dataCachingModule: NSDataWithCaching.sharedInstance)
         result.setContentCompressionResistancePriority(UILayoutPriority.defaultLow, for: .horizontal)
         result.setContentCompressionResistancePriority(UILayoutPriority.defaultLow, for: .vertical)
         

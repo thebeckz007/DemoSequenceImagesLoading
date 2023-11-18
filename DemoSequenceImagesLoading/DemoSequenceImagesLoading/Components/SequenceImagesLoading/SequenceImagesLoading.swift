@@ -6,9 +6,6 @@
 
 import UIKit
 
-// Define
-public typealias SequenceImagesAnimationCompletion = (Bool) -> Void
-
 //
 public enum SequenceImageFileType : Int {
     case png = 1
@@ -24,8 +21,13 @@ public enum SequenceImageFileType : Int {
     }
 }
 
-//
+// MARK: Protocol
+
+// MARK: Class SequenceImagesLoading
 open class SequenceImagesLoading: UIImageView {
+    // Define
+    public typealias SequenceImagesAnimationCompletion = (Bool) -> Void
+    
     // MAR:- Variables
     fileprivate var sequenceImageFiles: [String] = [String]()
     fileprivate var imageCompletionAnimation: SequenceImagesAnimationCompletion?
@@ -38,16 +40,19 @@ open class SequenceImagesLoading: UIImageView {
     
     fileprivate var animateNext: Bool = true;  // true if animate to Next, false if animate to Previous
     
-    convenience init(sequenceImageFiles: [String]) {
+    var dataCachingModule: CachingFileDataProtocol?
+    
+    convenience init(sequenceImageFiles: [String], dataCachingModule: CachingFileDataProtocol) {
         self.init();
         
         self.sequenceImageFiles = sequenceImageFiles
+        self.dataCachingModule = dataCachingModule
         
         preloadSequenceImages()
     }
     
     //
-    convenience init(sequenceImageFileNames: [String], imageType: SequenceImageFileType = .png, inBundle: Bundle) {
+    convenience init(sequenceImageFileNames: [String], imageType: SequenceImageFileType = .png, inBundle: Bundle, dataCachingModule: CachingFileDataProtocol) {
         // read data of all image animation filess in other queue
         var arrImageFiles: [String] = [String]()
         
@@ -57,25 +62,25 @@ open class SequenceImagesLoading: UIImageView {
             }
         }
         
-        self.init(sequenceImageFiles: arrImageFiles)
+        self.init(sequenceImageFiles: arrImageFiles, dataCachingModule: dataCachingModule)
     }
     
-    convenience init(systemImageFileNames: [String], imageType: SequenceImageFileType = .png) {
-        self.init(sequenceImageFileNames: systemImageFileNames, imageType: imageType, inBundle: Bundle.main)
+    convenience init(systemImageFileNames: [String], imageType: SequenceImageFileType = .png, dataCachingModule: CachingFileDataProtocol) {
+        self.init(sequenceImageFileNames: systemImageFileNames, imageType: imageType, inBundle: Bundle.main, dataCachingModule: dataCachingModule)
     }
     
-    convenience init(sequenceImageFileNames: [String], imageType: SequenceImageFileType = .png, inBundleName: String) {
+    convenience init(sequenceImageFileNames: [String], imageType: SequenceImageFileType = .png, inBundleName: String, dataCachingModule: CachingFileDataProtocol) {
         // read data of all image animation filess in other queue
         let path = Bundle.main.path(forResource:inBundleName, ofType:"bundle")
         let bundleImages :Bundle = Bundle.init(path: path!)!
         
-        self.init(sequenceImageFileNames: sequenceImageFileNames, imageType: imageType, inBundle: bundleImages)
+        self.init(sequenceImageFileNames: sequenceImageFileNames, imageType: imageType, inBundle: bundleImages, dataCachingModule: dataCachingModule)
     }
     
     //
     private func preloadSequenceImages() {
         for pathFile in sequenceImageFiles {
-            NSDataWithCaching.sharedInstance.dataFilebyFileName(pathFile, completion: { (data) in
+            self.dataCachingModule?.getDataFilebyFileName(pathFile, inMainThread: true, completion: { (data) in
             })
         }
     }
@@ -117,7 +122,7 @@ open class SequenceImagesLoading: UIImageView {
     
     open func setupFirstImage() {
         if let firstImage = self.sequenceImageFiles.first {
-            NSDataWithCaching.sharedInstance.dataFilebyFileName(firstImage, inMainThread: true, completion: { (data) in
+            self.dataCachingModule?.getDataFilebyFileName(firstImage, inMainThread: true, completion: { (data) in
                 if let _data = data {
                     self.image = UIImage(data: _data);
                 }
@@ -158,7 +163,7 @@ open class SequenceImagesLoading: UIImageView {
               
         let file = self.sequenceImageFiles[index];
         
-        NSDataWithCaching.sharedInstance.dataFilebyFileName(file, inMainThread: true, completion: { (data) in
+        self.dataCachingModule?.getDataFilebyFileName(file, inMainThread: true, completion: { (data) in
             if let _data = data {
                 self.image = UIImage(data: _data);
             }
