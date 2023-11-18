@@ -6,7 +6,7 @@
 
 import UIKit
 
-//
+// MARK: Enum SequenceImageFileType
 public enum SequenceImageFileType : Int {
     case png = 1
     case jpg = 2
@@ -21,26 +21,29 @@ public enum SequenceImageFileType : Int {
     }
 }
 
+// MARK:
+// Define
+public typealias SequenceImagesAnimationCompletion = (Bool) -> Void
+
 // MARK: Protocol
+protocol SequenceImagesLoadingProtocol {
+    func startAnimation(duration: TimeInterval, repeatTimes: Int, completion: SequenceImagesAnimationCompletion?)
+    func stopAnimation()
+}
 
 // MARK: Class SequenceImagesLoading
-open class SequenceImagesLoading: UIImageView {
-    // Define
-    public typealias SequenceImagesAnimationCompletion = (Bool) -> Void
-    
+open class SequenceImagesLoading: UIImageView, SequenceImagesLoadingProtocol {
     // MAR:- Variables
     fileprivate var sequenceImageFiles: [String] = [String]()
     fileprivate var imageCompletionAnimation: SequenceImagesAnimationCompletion?
     
-    fileprivate var timer: Timer?
-    
     fileprivate var repeatTimes: Int = 0
     fileprivate var curIndex: Int = 0
     fileprivate var toIndex: Int = 0
-    
     fileprivate var animateNext: Bool = true;  // true if animate to Next, false if animate to Previous
     
-    var dataCachingModule: CachingFileDataProtocol?
+    fileprivate var dataCachingModule: CachingFileDataProtocol?
+    fileprivate var timer: Timer?
     
     convenience init(sequenceImageFiles: [String], dataCachingModule: CachingFileDataProtocol) {
         self.init();
@@ -120,23 +123,13 @@ open class SequenceImagesLoading: UIImageView {
         self.timer = Timer.scheduledTimer(timeInterval: TimeInterval(timeLoadSteps), target: self, selector: #selector(self.animateLoadImage), userInfo: nil, repeats: true);
     }
     
-    open func setupFirstImage() {
-        if let firstImage = self.sequenceImageFiles.first {
-            self.dataCachingModule?.getDataFilebyFileName(firstImage, inMainThread: true, completion: { (data) in
-                if let _data = data {
-                    self.image = UIImage(data: _data);
-                }
-            })
-        }
-    }
-    
     // stop animation
     open func stopAnimation() {
         self.endAnimationPathFileName();
     }
     
     // perform animation by update next image
-    @objc open func animateLoadImage() {
+    @objc private func animateLoadImage() {
         if ((self.animateNext && self.curIndex <= self.toIndex) // in case animate next to
              || (!self.animateNext && self.curIndex >= self.toIndex)) { // in case animate previous to
             
@@ -154,7 +147,7 @@ open class SequenceImagesLoading: UIImageView {
         }
     }
     
-    fileprivate func animateAtIndex(_ index: Int) {
+    private func animateAtIndex(_ index: Int) {
         if index < 0 {
             return
         } else if index >= self.sequenceImageFiles.count {
@@ -170,7 +163,7 @@ open class SequenceImagesLoading: UIImageView {
         })
     }
     
-    fileprivate func repeatAnimationIfNeed() {
+    private func repeatAnimationIfNeed() {
         if self.repeatTimes < 0 {
             // loop forever
             self.curIndex = 0;
@@ -186,7 +179,7 @@ open class SequenceImagesLoading: UIImageView {
     }
     
     //
-    fileprivate func endAnimationPathFileName() {
+    private func endAnimationPathFileName() {
         self.stopTimer();
         
         if let _completion = self.imageCompletionAnimation {
@@ -196,7 +189,7 @@ open class SequenceImagesLoading: UIImageView {
     }
     
     //
-    fileprivate func stopTimer() {
+    private func stopTimer() {
         self.timer?.invalidate();
         self.timer = nil;
     }

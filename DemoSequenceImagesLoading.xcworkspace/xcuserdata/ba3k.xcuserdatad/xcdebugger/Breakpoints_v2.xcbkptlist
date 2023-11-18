@@ -14,8 +14,8 @@
             filePath = "DemoSequenceImagesLoading/DemoSequenceImagesLoading/Components/SequenceImagesLoading/SequenceImagesLoading.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
             landmarkName = "animateLoadImage()"
             landmarkType = "7">
             <Locations>
