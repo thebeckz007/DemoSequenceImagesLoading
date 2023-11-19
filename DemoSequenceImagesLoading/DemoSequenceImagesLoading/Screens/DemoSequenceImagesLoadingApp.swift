@@ -11,7 +11,7 @@ import SwiftUI
 struct DemoSequenceImagesLoadingApp: App {
     var body: some Scene {
         WindowGroup {
-            HomePageView()
+            HomePageBuilder.setupHomePage()
         }
     }
 }

@@ -14,9 +14,13 @@
 		7049CB222B059D0D00C5BA73 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7049CB192B059D0D00C5BA73 /* HomePageView.swift */; };
 		7049CB232B059D0D00C5BA73 /* DemoSequenceImagesLoadingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7049CB1A2B059D0D00C5BA73 /* DemoSequenceImagesLoadingApp.swift */; };
 		705238442B0522AC005956B6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 705238432B0522AC005956B6 /* Preview Assets.xcassets */; };
-		7052384E2B0522AD005956B6 /* DemoSequenceImagesLoadingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7052384D2B0522AD005956B6 /* DemoSequenceImagesLoadingTests.swift */; };
 		705238582B0522AD005956B6 /* DemoSequenceImagesLoadingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705238572B0522AD005956B6 /* DemoSequenceImagesLoadingUITests.swift */; };
 		7052385A2B0522AD005956B6 /* DemoSequenceImagesLoadingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705238592B0522AD005956B6 /* DemoSequenceImagesLoadingUITestsLaunchTests.swift */; };
+		706E194C2B08E1D000A6DD0C /* MockUserActivityDataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E194B2B08E1D000A6DD0C /* MockUserActivityDataServices.swift */; };
+		706E194E2B08E86D00A6DD0C /* HomePageViewTestSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E194D2B08E86D00A6DD0C /* HomePageViewTestSpec.swift */; };
+		706E19552B08EB4F00A6DD0C /* InspectableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E19532B08EB4F00A6DD0C /* InspectableView+Extensions.swift */; };
+		706E19562B08EB4F00A6DD0C /* Inspection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E19542B08EB4F00A6DD0C /* Inspection+Extensions.swift */; };
+		706E19642B08FC2C00A6DD0C /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = 706E19632B08FC2C00A6DD0C /* ViewInspector */; };
 		70C5FB532B05A20800BDF7F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70C5FB522B05A20800BDF7F0 /* Assets.xcassets */; };
 		70C5FB542B05B2C700BDF7F0 /* NSDataWithCaching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7049CB0A2B059D0D00C5BA73 /* NSDataWithCaching.swift */; };
 		70C5FB572B05B95100BDF7F0 /* SequenceImagesLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7049CB0B2B059D0D00C5BA73 /* SequenceImagesLoading.swift */; };
@@ -25,12 +29,19 @@
 		70C5FB622B06775700BDF7F0 /* TimeInterval+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5FB612B06775700BDF7F0 /* TimeInterval+String.swift */; };
 		70C5FB642B06796300BDF7F0 /* Int+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5FB632B06796300BDF7F0 /* Int+String.swift */; };
 		70C5FB662B06EF7F00BDF7F0 /* UserActivityDataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5FB652B06EF7F00BDF7F0 /* UserActivityDataServices.swift */; };
-		70C5FB6A2B07204400BDF7F0 /* HomePageViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5FB692B07204400BDF7F0 /* HomePageViewModelTest.swift */; };
-		70C5FB6C2B07205D00BDF7F0 /* SequenceImagesLoadingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5FB6B2B07205D00BDF7F0 /* SequenceImagesLoadingTest.swift */; };
-		70C5FB6E2B07237700BDF7F0 /* HomePageModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5FB6D2B07237700BDF7F0 /* HomePageModelTest.swift */; };
-		70C5FB772B074BBB00BDF7F0 /* HomePageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7049CB172B059D0D00C5BA73 /* HomePageModel.swift */; };
+		70C5FB6A2B07204400BDF7F0 /* HomePageViewModelTestSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5FB692B07204400BDF7F0 /* HomePageViewModelTestSpec.swift */; };
+		70C5FB6E2B07237700BDF7F0 /* HomePageModelTestSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5FB6D2B07237700BDF7F0 /* HomePageModelTestSpec.swift */; };
 		70C5FB942B084FEB00BDF7F0 /* String+Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5FB932B084FEB00BDF7F0 /* String+Crypto.swift */; };
 		70C5FB972B085A6C00BDF7F0 /* snippet-extract in Frameworks */ = {isa = PBXBuildFile; productRef = 70C5FB962B085A6C00BDF7F0 /* snippet-extract */; };
+		70C5FB9A2B087C9000BDF7F0 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 70C5FB992B087C9000BDF7F0 /* Quick */; };
+		70C5FB9D2B087CD200BDF7F0 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 70C5FB9C2B087CD200BDF7F0 /* Nimble */; };
+		70C5FBA02B08A4C200BDF7F0 /* MockHomePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5FB9F2B08A4C200BDF7F0 /* MockHomePageViewModel.swift */; };
+		70C5FBA72B08AF3300BDF7F0 /* CwlCatchException in Frameworks */ = {isa = PBXBuildFile; productRef = 70C5FBA62B08AF3300BDF7F0 /* CwlCatchException */; };
+		70C5FBAA2B08AF5B00BDF7F0 /* CwlPosixPreconditionTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 70C5FBA92B08AF5B00BDF7F0 /* CwlPosixPreconditionTesting */; };
+		70C5FBAC2B08AF5B00BDF7F0 /* CwlPreconditionTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 70C5FBAB2B08AF5B00BDF7F0 /* CwlPreconditionTesting */; };
+		70C5FBB62B08C0D700BDF7F0 /* HomePageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5FBB52B08C0D700BDF7F0 /* HomePageBuilder.swift */; };
+		70C5FBB82B08C4C700BDF7F0 /* MVVMBaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5FBB72B08C4C700BDF7F0 /* MVVMBaseProtocol.swift */; };
+		70C5FBBA2B08CA3600BDF7F0 /* MockHomePageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5FBB92B08CA3600BDF7F0 /* MockHomePageModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,20 +73,26 @@
 		705238392B0522AB005956B6 /* DemoSequenceImagesLoading.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoSequenceImagesLoading.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		705238432B0522AC005956B6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		705238492B0522AD005956B6 /* DemoSequenceImagesLoadingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoSequenceImagesLoadingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7052384D2B0522AD005956B6 /* DemoSequenceImagesLoadingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSequenceImagesLoadingTests.swift; sourceTree = "<group>"; };
 		705238532B0522AD005956B6 /* DemoSequenceImagesLoadingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoSequenceImagesLoadingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		705238572B0522AD005956B6 /* DemoSequenceImagesLoadingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSequenceImagesLoadingUITests.swift; sourceTree = "<group>"; };
 		705238592B0522AD005956B6 /* DemoSequenceImagesLoadingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSequenceImagesLoadingUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		706E194B2B08E1D000A6DD0C /* MockUserActivityDataServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserActivityDataServices.swift; sourceTree = "<group>"; };
+		706E194D2B08E86D00A6DD0C /* HomePageViewTestSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewTestSpec.swift; sourceTree = "<group>"; };
+		706E19532B08EB4F00A6DD0C /* InspectableView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "InspectableView+Extensions.swift"; sourceTree = "<group>"; };
+		706E19542B08EB4F00A6DD0C /* Inspection+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Inspection+Extensions.swift"; sourceTree = "<group>"; };
 		70C5FB522B05A20800BDF7F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		70C5FB592B05D0C100BDF7F0 /* String+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Format.swift"; sourceTree = "<group>"; };
 		70C5FB5F2B0636BE00BDF7F0 /* Assets_Katespade_Activity.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Assets_Katespade_Activity.bundle; sourceTree = "<group>"; };
 		70C5FB612B06775700BDF7F0 /* TimeInterval+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+String.swift"; sourceTree = "<group>"; };
 		70C5FB632B06796300BDF7F0 /* Int+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+String.swift"; sourceTree = "<group>"; };
 		70C5FB652B06EF7F00BDF7F0 /* UserActivityDataServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActivityDataServices.swift; sourceTree = "<group>"; };
-		70C5FB692B07204400BDF7F0 /* HomePageViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewModelTest.swift; sourceTree = "<group>"; };
-		70C5FB6B2B07205D00BDF7F0 /* SequenceImagesLoadingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceImagesLoadingTest.swift; sourceTree = "<group>"; };
-		70C5FB6D2B07237700BDF7F0 /* HomePageModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageModelTest.swift; sourceTree = "<group>"; };
+		70C5FB692B07204400BDF7F0 /* HomePageViewModelTestSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewModelTestSpec.swift; sourceTree = "<group>"; };
+		70C5FB6D2B07237700BDF7F0 /* HomePageModelTestSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageModelTestSpec.swift; sourceTree = "<group>"; };
 		70C5FB932B084FEB00BDF7F0 /* String+Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Crypto.swift"; sourceTree = "<group>"; };
+		70C5FB9F2B08A4C200BDF7F0 /* MockHomePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomePageViewModel.swift; sourceTree = "<group>"; };
+		70C5FBB52B08C0D700BDF7F0 /* HomePageBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageBuilder.swift; sourceTree = "<group>"; };
+		70C5FBB72B08C4C700BDF7F0 /* MVVMBaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMBaseProtocol.swift; sourceTree = "<group>"; };
+		70C5FBB92B08CA3600BDF7F0 /* MockHomePageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomePageModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +108,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70C5FBAA2B08AF5B00BDF7F0 /* CwlPosixPreconditionTesting in Frameworks */,
+				70C5FBA72B08AF3300BDF7F0 /* CwlCatchException in Frameworks */,
+				70C5FB9A2B087C9000BDF7F0 /* Quick in Frameworks */,
+				70C5FBAC2B08AF5B00BDF7F0 /* CwlPreconditionTesting in Frameworks */,
+				70C5FB9D2B087CD200BDF7F0 /* Nimble in Frameworks */,
+				706E19642B08FC2C00A6DD0C /* ViewInspector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,9 +195,11 @@
 		7049CB132B059D0D00C5BA73 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				70C5FBB42B08C0B600BDF7F0 /* Builder */,
 				7049CB142B059D0D00C5BA73 /* ViewModel */,
 				7049CB162B059D0D00C5BA73 /* Model */,
 				7049CB182B059D0D00C5BA73 /* View */,
+				70C5FBB72B08C4C700BDF7F0 /* MVVMBaseProtocol.swift */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -247,10 +272,11 @@
 		7052384C2B0522AD005956B6 /* DemoSequenceImagesLoadingTests */ = {
 			isa = PBXGroup;
 			children = (
-				7052384D2B0522AD005956B6 /* DemoSequenceImagesLoadingTests.swift */,
-				70C5FB692B07204400BDF7F0 /* HomePageViewModelTest.swift */,
-				70C5FB6B2B07205D00BDF7F0 /* SequenceImagesLoadingTest.swift */,
-				70C5FB6D2B07237700BDF7F0 /* HomePageModelTest.swift */,
+				706E19522B08EB4F00A6DD0C /* ViewInspector */,
+				70C5FB9E2B08A4A300BDF7F0 /* Mocks */,
+				70C5FB692B07204400BDF7F0 /* HomePageViewModelTestSpec.swift */,
+				70C5FB6D2B07237700BDF7F0 /* HomePageModelTestSpec.swift */,
+				706E194D2B08E86D00A6DD0C /* HomePageViewTestSpec.swift */,
 			);
 			path = DemoSequenceImagesLoadingTests;
 			sourceTree = "<group>";
@@ -262,6 +288,15 @@
 				705238592B0522AD005956B6 /* DemoSequenceImagesLoadingUITestsLaunchTests.swift */,
 			);
 			path = DemoSequenceImagesLoadingUITests;
+			sourceTree = "<group>";
+		};
+		706E19522B08EB4F00A6DD0C /* ViewInspector */ = {
+			isa = PBXGroup;
+			children = (
+				706E19532B08EB4F00A6DD0C /* InspectableView+Extensions.swift */,
+				706E19542B08EB4F00A6DD0C /* Inspection+Extensions.swift */,
+			);
+			path = ViewInspector;
 			sourceTree = "<group>";
 		};
 		70C5FB512B05A1E400BDF7F0 /* APIServices */ = {
@@ -285,6 +320,24 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		70C5FB9E2B08A4A300BDF7F0 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				70C5FB9F2B08A4C200BDF7F0 /* MockHomePageViewModel.swift */,
+				70C5FBB92B08CA3600BDF7F0 /* MockHomePageModel.swift */,
+				706E194B2B08E1D000A6DD0C /* MockUserActivityDataServices.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		70C5FBB42B08C0B600BDF7F0 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				70C5FBB52B08C0D700BDF7F0 /* HomePageBuilder.swift */,
+			);
+			path = Builder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,6 +378,12 @@
 			);
 			name = DemoSequenceImagesLoadingTests;
 			packageProductDependencies = (
+				70C5FB992B087C9000BDF7F0 /* Quick */,
+				70C5FB9C2B087CD200BDF7F0 /* Nimble */,
+				70C5FBA62B08AF3300BDF7F0 /* CwlCatchException */,
+				70C5FBA92B08AF5B00BDF7F0 /* CwlPosixPreconditionTesting */,
+				70C5FBAB2B08AF5B00BDF7F0 /* CwlPreconditionTesting */,
+				706E19632B08FC2C00A6DD0C /* ViewInspector */,
 			);
 			productName = DemoSequenceImagesLoadingTests;
 			productReference = 705238492B0522AD005956B6 /* DemoSequenceImagesLoadingTests.xctest */;
@@ -382,6 +441,11 @@
 			mainGroup = 705238302B0522AB005956B6;
 			packageReferences = (
 				70C5FB952B085A6C00BDF7F0 /* XCRemoteSwiftPackageReference "swift-docc-plugin" */,
+				70C5FB982B087C9000BDF7F0 /* XCRemoteSwiftPackageReference "Quick" */,
+				70C5FB9B2B087CD200BDF7F0 /* XCRemoteSwiftPackageReference "Nimble" */,
+				70C5FBA52B08AF3300BDF7F0 /* XCRemoteSwiftPackageReference "CwlCatchException" */,
+				70C5FBA82B08AF5B00BDF7F0 /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */,
+				706E19602B08FC1B00A6DD0C /* XCRemoteSwiftPackageReference "ViewInspector" */,
 			);
 			productRefGroup = 7052383A2B0522AB005956B6 /* Products */;
 			projectDirPath = "";
@@ -433,12 +497,14 @@
 				7049CB1E2B059D0D00C5BA73 /* String+File.swift in Sources */,
 				7049CB1F2B059D0D00C5BA73 /* NSThreadSafe.swift in Sources */,
 				7049CB212B059D0D00C5BA73 /* HomePageModel.swift in Sources */,
+				70C5FBB62B08C0D700BDF7F0 /* HomePageBuilder.swift in Sources */,
 				70C5FB622B06775700BDF7F0 /* TimeInterval+String.swift in Sources */,
 				70C5FB572B05B95100BDF7F0 /* SequenceImagesLoading.swift in Sources */,
 				7049CB222B059D0D00C5BA73 /* HomePageView.swift in Sources */,
 				7049CB202B059D0D00C5BA73 /* HomePageViewModel.swift in Sources */,
 				70C5FB5A2B05D0C100BDF7F0 /* String+Format.swift in Sources */,
 				70C5FB942B084FEB00BDF7F0 /* String+Crypto.swift in Sources */,
+				70C5FBB82B08C4C700BDF7F0 /* MVVMBaseProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,11 +512,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70C5FB6A2B07204400BDF7F0 /* HomePageViewModelTest.swift in Sources */,
-				70C5FB6E2B07237700BDF7F0 /* HomePageModelTest.swift in Sources */,
-				70C5FB6C2B07205D00BDF7F0 /* SequenceImagesLoadingTest.swift in Sources */,
-				70C5FB772B074BBB00BDF7F0 /* HomePageModel.swift in Sources */,
-				7052384E2B0522AD005956B6 /* DemoSequenceImagesLoadingTests.swift in Sources */,
+				706E194E2B08E86D00A6DD0C /* HomePageViewTestSpec.swift in Sources */,
+				70C5FB6A2B07204400BDF7F0 /* HomePageViewModelTestSpec.swift in Sources */,
+				70C5FB6E2B07237700BDF7F0 /* HomePageModelTestSpec.swift in Sources */,
+				706E19562B08EB4F00A6DD0C /* Inspection+Extensions.swift in Sources */,
+				70C5FBA02B08A4C200BDF7F0 /* MockHomePageViewModel.swift in Sources */,
+				70C5FBBA2B08CA3600BDF7F0 /* MockHomePageModel.swift in Sources */,
+				706E19552B08EB4F00A6DD0C /* InspectableView+Extensions.swift in Sources */,
+				706E194C2B08E1D000A6DD0C /* MockUserActivityDataServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -778,6 +847,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		706E19602B08FC1B00A6DD0C /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nalexn/ViewInspector";
+			requirement = {
+				kind = exactVersion;
+				version = 0.9.1;
+			};
+		};
 		70C5FB952B085A6C00BDF7F0 /* XCRemoteSwiftPackageReference "swift-docc-plugin" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-docc-plugin";
@@ -786,13 +863,75 @@
 				minimumVersion = 1.3.0;
 			};
 		};
+		70C5FB982B087C9000BDF7F0 /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		70C5FB9B2B087CD200BDF7F0 /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		70C5FBA52B08AF3300BDF7F0 /* XCRemoteSwiftPackageReference "CwlCatchException" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mattgallagher/CwlCatchException.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.2;
+			};
+		};
+		70C5FBA82B08AF5B00BDF7F0 /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mattgallagher/CwlPreconditionTesting.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		706E19632B08FC2C00A6DD0C /* ViewInspector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 706E19602B08FC1B00A6DD0C /* XCRemoteSwiftPackageReference "ViewInspector" */;
+			productName = ViewInspector;
+		};
 		70C5FB962B085A6C00BDF7F0 /* snippet-extract */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 70C5FB952B085A6C00BDF7F0 /* XCRemoteSwiftPackageReference "swift-docc-plugin" */;
 			productName = "snippet-extract";
+		};
+		70C5FB992B087C9000BDF7F0 /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 70C5FB982B087C9000BDF7F0 /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
+		};
+		70C5FB9C2B087CD200BDF7F0 /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 70C5FB9B2B087CD200BDF7F0 /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+		70C5FBA62B08AF3300BDF7F0 /* CwlCatchException */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 70C5FBA52B08AF3300BDF7F0 /* XCRemoteSwiftPackageReference "CwlCatchException" */;
+			productName = CwlCatchException;
+		};
+		70C5FBA92B08AF5B00BDF7F0 /* CwlPosixPreconditionTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 70C5FBA82B08AF5B00BDF7F0 /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */;
+			productName = CwlPosixPreconditionTesting;
+		};
+		70C5FBAB2B08AF5B00BDF7F0 /* CwlPreconditionTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 70C5FBA82B08AF5B00BDF7F0 /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */;
+			productName = CwlPreconditionTesting;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -8,9 +8,16 @@
 
 import Foundation
 
+// MARK: enum SyncDataStatus
+/// List all status of syncing data
 enum SyncDataStatus: Int {
+    /// Not started syncing
     case NotSync = 0
+    
+    /// In syncing progress
     case Syncing = 1
+    
+    /// Just completed syncing
     case SyncCompleted = 2
     
     var name : String {
@@ -25,13 +32,25 @@ enum SyncDataStatus: Int {
     }
 }
 
-// Mark: Class HomePageViewModel
-final class HomePageViewModel: ObservableObject {
+// MARK: protocol HomePageViewModelProtocol
+/// protocol HomePageViewModelProtocol
+protocol HomePageViewModelProtocol: BaseViewModelProtocol {
+    /// Perform a syncing data
+    func syncData()
+}
+
+// MARK: Class HomePageViewModel
+/// Class HomePageViewModel
+class HomePageViewModel: ObservableObject, HomePageViewModelProtocol {
     @Published var numPercentage: TimeInterval = 0
     @Published var syncStatus: SyncDataStatus = .NotSync
     @Published var txtSyncStatus: String = SyncDataStatus.NotSync.name
     
-    let hgModel = HomePageModel()
+    var hgModel: HomePageModelProtocol
+    
+    init(hgModel: HomePageModelProtocol) {
+        self.hgModel = hgModel
+    }
     
     func syncData() {
         self.syncStatus = .Syncing

@@ -14,8 +14,13 @@ let TimeIntervalStepDebug: TimeInterval = 1.0
 typealias getUserStepsDataCompletion = (_ steps: UInt?) -> Void;
 typealias getUsersActivityDataCompletion = (_ data: TimeInterval?) -> Void;
 
+protocol UserActivityDataServicesProtocol {
+    func getUserStepsData(completion: @escaping getUserStepsDataCompletion)
+    func getUserActivityData(completion: @escaping getUsersActivityDataCompletion)
+}
+
 //
-class UserActivityDataServices {
+class UserActivityDataServices: UserActivityDataServicesProtocol {
     // Inint shared instance as a Singleton instance
     static let sharedInstance = UserActivityDataServices();
     

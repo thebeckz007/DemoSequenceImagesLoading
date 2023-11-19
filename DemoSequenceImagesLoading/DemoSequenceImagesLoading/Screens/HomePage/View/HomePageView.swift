@@ -9,30 +9,61 @@
 import SwiftUI
 import UIKit
 
-// Mark: Struct HomePageView
-struct HomePageView : View {
-    @ObservedObject var hpViewModel = HomePageViewModel()
+// MARK: HomePageView
+/// Struct HomePageView
+protocol HomePageViewProtocol: BaseViewProtocol {
+    
+}
+
+// MARK: constIDViewHomePageView
+/// List IDview of all views as a const variable
+struct constIDViewHomePageView {
+    static let _idView_MainZStack = "_idView_MainZStack"
+    static let _idView_MainVStack = "_idView_MainVStack"
+    static let _idView_SequenceImagesLoadingView = "_idView_SequenceImagesLoadingView"
+    static let _idView_SyncButton = "_idView_SyncButton"
+    static let _idView_SyncTextBUtton = "_idView_SyncTextBUtton"
+    static let _idView_NumberPercentageText = "_idView_NumberPercentageText"
+}
+
+// MARK: HomePageView
+/// Contruct main view in here
+struct HomePageView : View, HomePageViewProtocol {
+    @ObservedObject var hpViewModel: HomePageViewModel
     
     // init SequenceImagesLoading
     var body: some View {
+        // add ZStack
         ZStack{
+            // set background color
             Color.green
+            
+            // add SequenceImagesLoadingView
             SequenceImagesLoadingView(numPercentage: $hpViewModel.numPercentage)
+            
+            // add VStack
             VStack {
-                Button(action: {
+                // add sync button
+                Button {
                     hpViewModel.syncData()
-                }) {
+                } label: {
                     syncButton(syncStatus: $hpViewModel.syncStatus)
                 }
                 .offset(y: 350)
+                .id(constIDViewHomePageView._idView_SyncButton)
                 
-                textView(numPercentage: $hpViewModel.numPercentage)
+                // add textview to display number of percentage
+                textNumPercentageView(numPercentage: $hpViewModel.numPercentage)
             }
+            .id(constIDViewHomePageView._idView_MainVStack)
         }
         .ignoresSafeArea(.all)
+        .id(constIDViewHomePageView._idView_MainZStack)
     }
 }
 
+// MARK: syncButton
+/// Contruct textview of sync button
 struct syncButton : View {
     @Binding var syncStatus: SyncDataStatus
     
@@ -45,10 +76,13 @@ struct syncButton : View {
             .background(syncStatus == .Syncing ? Color.orange:Color.purple)
             .cornerRadius(15.0)
             .allowsHitTesting(syncStatus != .Syncing)
+            .id(constIDViewHomePageView._idView_SyncTextBUtton)
     }
 }
 
-struct textView : View {
+// MARK: textNumPercentageView
+/// Contruct textview to update number percentage
+struct textNumPercentageView : View {
     @Binding var numPercentage: TimeInterval
     var body: some View {
         return Text(numPercentage.toStringPercentage())
@@ -57,9 +91,12 @@ struct textView : View {
             .padding()
             .frame(width: 220, height: 60)
             .offset(y:-40)
+            .id(constIDViewHomePageView._idView_NumberPercentageText)
     }
 }
 
+// MARK: SequenceImagesLoadingView
+/// Contruct SequenceImagesLoadingView
 struct SequenceImagesLoadingView : View {
     @Binding var numPercentage: TimeInterval
     var body: some View {
@@ -68,29 +105,32 @@ struct SequenceImagesLoadingView : View {
     }
 }
 
+// MARK: SequenceImagesLoadingUIImageView
+// integrate SequenceImagesLoading as UIImageView in UIKit to SequenceImagesLoadingView as Image in SwiftUI
 struct SequenceImagesLoadingUIImageView: UIViewRepresentable {
-    //1.
     typealias UIViewType = SequenceImagesLoading
-
-    //2.
     @Binding var numPercentage: TimeInterval
+    
+    // declare image file name and image bundle name which bundle these images were stored
+    let strImageFileName = "ks_activity_seq_"
+    let strImageBundleName = "Assets_Katespade_Activity"
 
-    //3.
     func makeUIView(context: Context) -> SequenceImagesLoading {
         var arrImageFiles: [String] = [String]()
         for idx in 0...72 {
-            let strFileName = "ks_activity_seq_" + String.stringFromInt(idx, numberZeroChar: 3)
+            let strFileName = strImageFileName + String.stringFromInt(idx, numberZeroChar: 3)
             arrImageFiles.append(strFileName)
         }
         
-        let result = SequenceImagesLoading(sequenceImageFileNames: arrImageFiles, imageType: .png, inBundleName: "Assets_Katespade_Activity", dataCachingModule: NSDataWithCaching.sharedInstance)
+        let result = SequenceImagesLoading(sequenceImageFileNames: arrImageFiles, imageType: .png, inBundleName: strImageBundleName, dataCachingModule: NSDataWithCaching.sharedInstance)
+        
+        // enable auto resize image
         result.setContentCompressionResistancePriority(UILayoutPriority.defaultLow, for: .horizontal)
         result.setContentCompressionResistancePriority(UILayoutPriority.defaultLow, for: .vertical)
         
         return result
     }
     
-    //4.
     func updateUIView(_ uiView: SequenceImagesLoading, context: Context) {
         uiView.startAnimation(duration: numPercentage) { _ in
         }
@@ -99,5 +139,7 @@ struct SequenceImagesLoadingUIImageView: UIViewRepresentable {
 
 // MARK: Preview
 #Preview {
-    HomePageView()
+    let model = HomePageModel(userActivityModule: UserActivityDataServices.sharedInstance)
+    let viewmodel = HomePageViewModel(hgModel: model)
+    return HomePageView(hpViewModel: viewmodel)
 }

@@ -8,11 +8,34 @@
 
 import Foundation
 
-// Mark: Struct HomePageModel
-class HomePageModel {
+// MARK: Protocol HomePageModelProtocol
+/// protocol HomePageModelProtocol
+protocol HomePageModelProtocol: BaseModelProtocol {
+    /// Perform a syncing data
+    /// - parameter completion:a completion block what will be fired whenever syncing data completed
+    func syncData(completion: @escaping (_ data: TimeInterval?) -> Void)
+    
+    /// Perform a check user data task
+    func checkUserData() -> Bool
+}
+
+// MARK: Struct HomePageModel
+/// class HomePageModel
+class HomePageModel: HomePageModelProtocol {
+    let userActivityModule: UserActivityDataServicesProtocol
+    
+    init(userActivityModule: UserActivityDataServicesProtocol) {
+        self.userActivityModule = userActivityModule
+    }
+    
     func syncData(completion: @escaping (_ data: TimeInterval?) -> Void) {
-        UserActivityDataServices.sharedInstance.getUserActivityData { data in
+        userActivityModule.getUserActivityData { data in
             completion(data ?? nil)
         }
+    }
+    
+    func checkUserData() -> Bool {
+        // TODO:
+        return true
     }
 }
