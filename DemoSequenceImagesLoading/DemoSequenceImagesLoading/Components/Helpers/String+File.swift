@@ -9,9 +9,8 @@ import Foundation
 
 //
 extension String {
-    // hash this string into as key of string
+    /// hash this string into as key of string by MD5 itseft
     internal func keyString() -> String {
-        // NOTE: For now, key of file is itself
         return self.md5Hash()
     }
 }
