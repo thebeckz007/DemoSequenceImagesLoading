@@ -10,7 +10,7 @@ import SwiftUI
 import UIKit
 
 // MARK: HomePageView
-/// Struct HomePageView
+/// protocol HomePageView
 protocol HomePageViewProtocol: BaseViewProtocol {
     
 }
