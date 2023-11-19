@@ -13,6 +13,8 @@ import ViewInspector
 
 @testable import DemoSequenceImagesLoading
 
+extension HomePageView: Inspectable {}
+
 class HomePageViewTestSpec: QuickSpec {
     override class func spec() {
         var hpView: HomePageView?
