@@ -31,7 +31,7 @@ class HomePageModelTestSpec: QuickSpec {
                 }
             }
             
-            // // testsuite of get user activity data
+            // testsuite of get user activity data
             context("Test get user activity data method") {
                 it("Test get user activity data with respond 0.7") {
                     hpModel?.userActivityModule.getUserActivityData(completion: { data in

@@ -9,14 +9,14 @@ import Foundation
 
 extension String {
     static public func stringFromInt(_ number: Int, numberZeroChar: Int) -> String {
-        var formatString = "";
+        var formatString = ""
         let numZero = numberZeroChar - String(number).count
         if numZero > 0 {
             for _ in 1...numZero {
-                formatString += "0";
+                formatString += "0"
             }
         }
-        formatString += "%d";
-        return String(format: formatString, number);
+        formatString += "%d"
+        return String(format: formatString, number)
     }
 }

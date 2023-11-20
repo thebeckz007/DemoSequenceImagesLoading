@@ -52,7 +52,7 @@ open class SequenceImagesLoading: UIImageView, SequenceImagesLoadingProtocol {
     fileprivate var repeatTimes: Int = 0
     fileprivate var curIndex: Int = 0
     fileprivate var toIndex: Int = 0
-    fileprivate var animateNext: Bool = true;  // true if animate to Next, false if animate to Previous
+    fileprivate var animateNext: Bool = true  // true if animate to Next, false if animate to Previous
     
     fileprivate var dataCachingModule: CachingFileDataProtocol?
     fileprivate var timer: Timer?
@@ -62,7 +62,7 @@ open class SequenceImagesLoading: UIImageView, SequenceImagesLoadingProtocol {
     /// - parameter sequenceImageFiles: list of sequence file. NOTE: It should be a full path of image file
     /// - parameter dataCachingModule: a module to caching data file what conform with CachingFileDataProtocol protocol
     convenience init(sequenceImageFiles: [String], dataCachingModule: CachingFileDataProtocol) {
-        self.init();
+        self.init()
         
         self.sequenceImageFiles = sequenceImageFiles
         self.dataCachingModule = dataCachingModule
@@ -82,7 +82,7 @@ open class SequenceImagesLoading: UIImageView, SequenceImagesLoadingProtocol {
         
         for file in sequenceImageFileNames {
             if let pathFile = file.pathFileInBundle(inBundle, withExtensionFile: imageType.name) {
-                arrImageFiles.append(pathFile);
+                arrImageFiles.append(pathFile)
             }
         }
         
@@ -131,17 +131,17 @@ open class SequenceImagesLoading: UIImageView, SequenceImagesLoadingProtocol {
             return
         }
         
-        self.repeatTimes = repeatTimes;
+        self.repeatTimes = repeatTimes
         
-        self.imageCompletionAnimation = completion;
+        self.imageCompletionAnimation = completion
         self.toIndex = max(Int(round(Float(duration) * Float(self.sequenceImageFiles.count))),0)
         
         if self.toIndex > self.curIndex {
             // animate next from curIndex to toIndex
-            self.animateNext = true;
+            self.animateNext = true
         } else if self.toIndex < self.curIndex {
             // animate previous from curIndex to toIndex
-            self.animateNext = false;
+            self.animateNext = false
         } else {
             // do not at all
             endAnimationPathFileName()
@@ -149,16 +149,16 @@ open class SequenceImagesLoading: UIImageView, SequenceImagesLoadingProtocol {
         }
         
         // Stop timer
-        self.stopTimer();
+        self.stopTimer()
         
         // Trigger new timer
         let timeLoadSteps = 0.1
-        self.timer = Timer.scheduledTimer(timeInterval: TimeInterval(timeLoadSteps), target: self, selector: #selector(self.animateLoadImage), userInfo: nil, repeats: true);
+        self.timer = Timer.scheduledTimer(timeInterval: TimeInterval(timeLoadSteps), target: self, selector: #selector(self.animateLoadImage), userInfo: nil, repeats: true)
     }
     
     // stop animation
     open func stopAnimation() {
-        self.endAnimationPathFileName();
+        self.endAnimationPathFileName()
     }
     
     // perform animation by update next image
@@ -166,17 +166,17 @@ open class SequenceImagesLoading: UIImageView, SequenceImagesLoadingProtocol {
         if ((self.animateNext && self.curIndex <= self.toIndex) // in case animate next to
              || (!self.animateNext && self.curIndex >= self.toIndex)) { // in case animate previous to
             
-            self.animateAtIndex(self.curIndex);
+            self.animateAtIndex(self.curIndex)
             
             if self.animateNext {
                 // to next
-                self.curIndex += 1;
+                self.curIndex += 1
             } else {
                 // to previous
-                self.curIndex -= 1;
+                self.curIndex -= 1
             }
         } else {
-            self.repeatAnimationIfNeed();
+            self.repeatAnimationIfNeed()
         }
     }
     
@@ -187,11 +187,11 @@ open class SequenceImagesLoading: UIImageView, SequenceImagesLoadingProtocol {
             return
         }
               
-        let file = self.sequenceImageFiles[index];
+        let file = self.sequenceImageFiles[index]
         
         self.dataCachingModule?.getDataFilebyFileName(file, inMainThread: true, completion: { (data) in
             if let _data = data {
-                self.image = UIImage(data: _data);
+                self.image = UIImage(data: _data)
             }
         })
     }
@@ -199,31 +199,31 @@ open class SequenceImagesLoading: UIImageView, SequenceImagesLoadingProtocol {
     private func repeatAnimationIfNeed() {
         if self.repeatTimes < 0 {
             // loop forever
-            self.curIndex = 0;
-            self.animateLoadImage();
+            self.curIndex = 0
+            self.animateLoadImage()
         } else if (self.repeatTimes >= 1) {
             // loop n times
-            self.curIndex = 0;
-            self.repeatTimes -= 1;
-            self.animateLoadImage();
+            self.curIndex = 0
+            self.repeatTimes -= 1
+            self.animateLoadImage()
         } else {
-            self.endAnimationPathFileName();
+            self.endAnimationPathFileName()
         }
     }
     
     //
     private func endAnimationPathFileName() {
-        self.stopTimer();
+        self.stopTimer()
         
         if let _completion = self.imageCompletionAnimation {
-            _completion(true);
-            self.imageCompletionAnimation = nil;
+            _completion(true)
+            self.imageCompletionAnimation = nil
         }
     }
     
     //
     private func stopTimer() {
-        self.timer?.invalidate();
-        self.timer = nil;
+        self.timer?.invalidate()
+        self.timer = nil
     }
 }

@@ -11,8 +11,8 @@ import Foundation
 let TimeIntervalStepDebug: TimeInterval = 1.0
 
 //
-typealias getUserStepsDataCompletion = (_ steps: UInt?) -> Void;
-typealias getUsersActivityDataCompletion = (_ data: TimeInterval?) -> Void;
+typealias getUserStepsDataCompletion = (_ steps: UInt?) -> Void
+typealias getUsersActivityDataCompletion = (_ data: TimeInterval?) -> Void
 
 protocol UserActivityDataServicesProtocol {
     func getUserStepsData(completion: @escaping getUserStepsDataCompletion)
@@ -22,7 +22,7 @@ protocol UserActivityDataServicesProtocol {
 //
 class UserActivityDataServices: UserActivityDataServicesProtocol {
     // Inint shared instance as a Singleton instance
-    static let sharedInstance = UserActivityDataServices();
+    static let sharedInstance = UserActivityDataServices()
     
     func getUserStepsData(completion: @escaping getUserStepsDataCompletion) {
         Timer.scheduledTimer(withTimeInterval: TimeIntervalStepDebug, repeats: false) { _ in

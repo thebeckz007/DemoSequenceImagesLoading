@@ -7,8 +7,8 @@
 import Foundation
 
 // MARK: completion block
-typealias getDataWithCachingCompletion = (_ data: Data?) -> Void;
-typealias saveDataWithCachingCompletion = () -> Void;
+typealias getDataWithCachingCompletion = (_ data: Data?) -> Void
+typealias saveDataWithCachingCompletion = () -> Void
 
 // MARK: Protocol CachingFileDataProtocol
 /// Protocol caching file data
@@ -28,13 +28,13 @@ protocol CachingFileDataProtocol {
 /// NSDataWithCaching class to handle a caching data into memory
 class NSDataWithCaching: NSObject, CachingFileDataProtocol {
     /// a shared instance of NSDataWithCaching as singleton instance
-    static let sharedInstance = NSDataWithCaching();
+    static let sharedInstance = NSDataWithCaching()
     
     /// a concurrent queue for performing Data caching task
-    private let queueDataCaching: DispatchQueue = DispatchQueue(label: "__DATACACHING_QUEUE__", attributes: .concurrent);
+    private let queueDataCaching: DispatchQueue = DispatchQueue(label: "__DATACACHING_QUEUE__", attributes: .concurrent)
     
     /// a instance object to cache data
-    private var cachingData: [String: Data] = [String: Data]();
+    private var cachingData: [String: Data] = [String: Data]()
     
     func getDataFilebyFileName(_ filename: String, inMainThread: Bool = true, completion: @escaping getDataWithCachingCompletion) {
         // Declare finalCompletion as a final completion to perform this completion
@@ -44,27 +44,27 @@ class NSDataWithCaching: NSObject, CachingFileDataProtocol {
                     completion(data)
                 }
             } else {
-                completion(data);
+                completion(data)
             }
         }
         
         // Get key of file name
-        let keyFile = filename.keyString();
+        let keyFile = filename.keyString()
         
         // Find data file from the caching by key of file name
         self.getDataFromCaching(keyFile) { (data) in
             if let _data = data {
-                finalCompletion(_data);
+                finalCompletion(_data)
             } else {
                 // Perform to read this file if does not exist from caching
                 self.queueDataCaching.async(execute: {
                     if let contentFile = try? Data(contentsOf: URL(fileURLWithPath: filename)) {
                         // store this data to caching by key of file name
                         self.saveDataToCaching(keyFile, data: contentFile, completion: {
-                            finalCompletion(contentFile);
+                            finalCompletion(contentFile)
                         })
                     } else {
-                        finalCompletion(nil);
+                        finalCompletion(nil)
                     }
                 })
             }
@@ -73,7 +73,7 @@ class NSDataWithCaching: NSObject, CachingFileDataProtocol {
     
     func clearCaching() {
         self.threadSafe() {
-            self.cachingData.removeAll();
+            self.cachingData.removeAll()
         }
     }
     
@@ -81,9 +81,9 @@ class NSDataWithCaching: NSObject, CachingFileDataProtocol {
     private func getDataFromCaching(_ keyFile: String, completion: getDataWithCachingCompletion) {
         self.threadSafe() {
             if let data = self.cachingData[keyFile] {
-                completion(data);
+                completion(data)
             } else {
-                completion(nil);
+                completion(nil)
             }
         }
     }
@@ -91,8 +91,8 @@ class NSDataWithCaching: NSObject, CachingFileDataProtocol {
     /// Function store data to caching by key of file
     private func saveDataToCaching(_ keyFile: String, data: Data, completion: saveDataWithCachingCompletion) {
         self.threadSafe() {
-            self.cachingData[keyFile] = data;
-            completion();
+            self.cachingData[keyFile] = data
+            completion()
         }
     }
 }
