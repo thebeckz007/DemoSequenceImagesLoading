@@ -25,8 +25,6 @@
 		70C5FB572B05B95100BDF7F0 /* SequenceImagesLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7049CB0B2B059D0D00C5BA73 /* SequenceImagesLoading.swift */; };
 		70C5FB5A2B05D0C100BDF7F0 /* String+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5FB592B05D0C100BDF7F0 /* String+Format.swift */; };
 		70C5FB602B0636BE00BDF7F0 /* Assets_Katespade_Activity.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 70C5FB5F2B0636BE00BDF7F0 /* Assets_Katespade_Activity.bundle */; };
-		70C5FB622B06775700BDF7F0 /* TimeInterval+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5FB612B06775700BDF7F0 /* TimeInterval+String.swift */; };
-		70C5FB642B06796300BDF7F0 /* Int+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5FB632B06796300BDF7F0 /* Int+String.swift */; };
 		70C5FB662B06EF7F00BDF7F0 /* UserActivityDataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5FB652B06EF7F00BDF7F0 /* UserActivityDataServices.swift */; };
 		70C5FB6A2B07204400BDF7F0 /* HomePageViewModelTestSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5FB692B07204400BDF7F0 /* HomePageViewModelTestSpec.swift */; };
 		70C5FB6E2B07237700BDF7F0 /* HomePageModelTestSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5FB6D2B07237700BDF7F0 /* HomePageModelTestSpec.swift */; };
@@ -81,8 +79,6 @@
 		70C5FB522B05A20800BDF7F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		70C5FB592B05D0C100BDF7F0 /* String+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Format.swift"; sourceTree = "<group>"; };
 		70C5FB5F2B0636BE00BDF7F0 /* Assets_Katespade_Activity.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Assets_Katespade_Activity.bundle; sourceTree = "<group>"; };
-		70C5FB612B06775700BDF7F0 /* TimeInterval+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+String.swift"; sourceTree = "<group>"; };
-		70C5FB632B06796300BDF7F0 /* Int+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+String.swift"; sourceTree = "<group>"; };
 		70C5FB652B06EF7F00BDF7F0 /* UserActivityDataServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActivityDataServices.swift; sourceTree = "<group>"; };
 		70C5FB692B07204400BDF7F0 /* HomePageViewModelTestSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewModelTestSpec.swift; sourceTree = "<group>"; };
 		70C5FB6D2B07237700BDF7F0 /* HomePageModelTestSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageModelTestSpec.swift; sourceTree = "<group>"; };
@@ -151,8 +147,6 @@
 				70C5FB932B084FEB00BDF7F0 /* String+Crypto.swift */,
 				7049CB0D2B059D0D00C5BA73 /* String+File.swift */,
 				70C5FB592B05D0C100BDF7F0 /* String+Format.swift */,
-				70C5FB612B06775700BDF7F0 /* TimeInterval+String.swift */,
-				70C5FB632B06796300BDF7F0 /* Int+String.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -487,7 +481,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70C5FB642B06796300BDF7F0 /* Int+String.swift in Sources */,
 				7049CB232B059D0D00C5BA73 /* DemoSequenceImagesLoadingApp.swift in Sources */,
 				70C5FB662B06EF7F00BDF7F0 /* UserActivityDataServices.swift in Sources */,
 				70C5FB542B05B2C700BDF7F0 /* NSDataWithCaching.swift in Sources */,
@@ -495,7 +488,6 @@
 				7049CB1F2B059D0D00C5BA73 /* NSThreadSafe.swift in Sources */,
 				7049CB212B059D0D00C5BA73 /* HomePageModel.swift in Sources */,
 				70C5FBB62B08C0D700BDF7F0 /* HomePageBuilder.swift in Sources */,
-				70C5FB622B06775700BDF7F0 /* TimeInterval+String.swift in Sources */,
 				70C5FB572B05B95100BDF7F0 /* SequenceImagesLoading.swift in Sources */,
 				7049CB222B059D0D00C5BA73 /* HomePageView.swift in Sources */,
 				7049CB202B059D0D00C5BA73 /* HomePageViewModel.swift in Sources */,

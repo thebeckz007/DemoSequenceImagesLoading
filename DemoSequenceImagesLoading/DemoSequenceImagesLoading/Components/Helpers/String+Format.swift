@@ -19,4 +19,12 @@ extension String {
         formatString += "%d"
         return String(format: formatString, number)
     }
+    
+    /// Generate a string of percentage number
+    ///
+    /// - parameter numPercentage: the number of percentage, Note: FloatingPoint
+    /// - returns a string of percentage number
+    static func stringFromPercentageNumber<T: BinaryFloatingPoint>(numPercentage: T) -> String {
+        return "\(Int(numPercentage * 100))" + "%"
+    }
 }

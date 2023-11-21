@@ -85,7 +85,7 @@ struct syncButton : View {
 struct textNumPercentageView : View {
     @Binding var numPercentage: TimeInterval
     var body: some View {
-        return Text(numPercentage.toStringPercentage())
+        return Text(String.stringFromPercentageNumber(numPercentage: numPercentage))
             .font(.headline)
             .foregroundColor(.white)
             .padding()
