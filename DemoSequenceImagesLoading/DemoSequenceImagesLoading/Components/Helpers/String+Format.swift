@@ -8,7 +8,13 @@
 import Foundation
 
 extension String {
-    static public func stringFromInt(_ number: Int, numberZeroChar: Int) -> String {
+    /// Generate string of integer number
+    ///
+    /// Example: stringFromInt(15, numberZeroChar: 3) --> "015"
+    ///
+    /// - parameter number: BinaryInteger
+    /// - returns string of integer number
+    static public func stringFromInt<T: BinaryInteger>(_ number: T, numberZeroChar: Int) -> String {
         var formatString = ""
         let numZero = numberZeroChar - String(number).count
         if numZero > 0 {
@@ -17,7 +23,7 @@ extension String {
             }
         }
         formatString += "%d"
-        return String(format: formatString, number)
+        return String(format: formatString, number as! CVarArg)
     }
     
     /// Generate a string of percentage number
