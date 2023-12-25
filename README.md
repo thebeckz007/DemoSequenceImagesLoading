@@ -7,10 +7,12 @@ This project is the showcase of MVVM architecture, following SOLID principles, S
 # Why to build Sequence Images Loading module
 ## The prolem 1
 We have 2 solution to load sequence images
+
 <img src="Screenshots/Challenge_1.gif" width="600"/>
 
 ## The problem 2
 <img src="Screenshots/Challenge_2.png" width="600"/>
+
 Reference: iOS memory deep dive in WWDC 2018 https://developer.apple.com/videos/play/wwdc2018/416
 
 ## The problem 3
