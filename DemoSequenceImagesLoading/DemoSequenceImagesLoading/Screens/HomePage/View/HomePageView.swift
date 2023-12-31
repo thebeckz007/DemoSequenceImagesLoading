@@ -8,6 +8,7 @@
 
 import SwiftUI
 import UIKit
+import SequenceImagesLoading
 
 // MARK: HomePageView
 /// protocol HomePageView
@@ -122,7 +123,7 @@ struct SequenceImagesLoadingUIImageView: UIViewRepresentable {
             arrImageFiles.append(strFileName)
         }
         
-        let result = SequenceImagesLoading(sequenceImageFileNames: arrImageFiles, imageType: .png, inBundleName: strImageBundleName, dataCachingModule: NSDataWithCaching.sharedInstance)
+        let result = SequenceImagesLoading(sequenceImageFileNames: arrImageFiles, imageType: .png, inBundleName: strImageBundleName)
         
         // enable auto resize image
         result.setContentCompressionResistancePriority(UILayoutPriority.defaultLow, for: .horizontal)

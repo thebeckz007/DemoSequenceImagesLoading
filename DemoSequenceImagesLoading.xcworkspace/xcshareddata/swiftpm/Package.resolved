@@ -37,6 +37,15 @@
       }
     },
     {
+      "identity" : "sequenceimagesloading",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/thebeckz007/SequenceImagesLoading.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "16f9d26fad97cf5fe27709969d2188bc829d2ce6"
+      }
+    },
+    {
       "identity" : "swift-docc-plugin",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-docc-plugin",
