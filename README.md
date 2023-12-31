@@ -1,29 +1,12 @@
 # Demo Sequence Images Loading
-This is a demo of sequence images loading. 
+This is a demo of sequence images loading with Sequence Images loading Swift Package.
 This project is the showcase of MVVM architecture, following SOLID principles, SwiftUI, SwiftCombine, GCD and how to integrate UIKit to SwiftUI.
 
 <img src="Screenshots/demo.gif" width="300"/>
 
-# Why to build Sequence Images Loading module
-## The prolem 1
-We have 2 solution to load sequence images
-
-<img src="Screenshots/Challenge_1.gif" width="600"/>
-
-## The problem 2
-<img src="Screenshots/Challenge_2.png" width="600"/>
-
-Reference: iOS memory deep dive in WWDC 2018 https://developer.apple.com/videos/play/wwdc2018/416
-
-## The problem 3
-<img src="Screenshots/Challenge_3.png" width="600"/>
-
 # Features 
 - Load sequence images as progress bar.
 - Aniamate updated values.
-
-# Backlogs
-- Move to Swift Package Manager. 
     
 # Techniques
 - SwiftUI: to develop User Interfaces
@@ -39,6 +22,9 @@ Reference: iOS memory deep dive in WWDC 2018 https://developer.apple.com/videos/
 - iOS 17 ++
 
 ## How to run
+To run demo, we need to install some libraries from Swift Packages Manager:
+- SequenceImagesLoading [Github page](https://github.com/thebeckz007/SequenceImagesLoading.git)
+
 To run Unit-test, we need to install some libraries from Swift Packages Manager:
 - Quick
 - Nimble
