@@ -18,7 +18,7 @@
 		706E194E2B08E86D00A6DD0C /* HomePageViewTestSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E194D2B08E86D00A6DD0C /* HomePageViewTestSpec.swift */; };
 		706E19562B08EB4F00A6DD0C /* Inspection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E19542B08EB4F00A6DD0C /* Inspection+Extensions.swift */; };
 		706E19642B08FC2C00A6DD0C /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = 706E19632B08FC2C00A6DD0C /* ViewInspector */; };
-		70A8A0652B4159D60068C30B /* SequenceImagesLoading in Frameworks */ = {isa = PBXBuildFile; productRef = 70A8A0642B4159D60068C30B /* SequenceImagesLoading */; };
+		70A7C8362B45B75A00EB6976 /* SequenceImagesLoading in Frameworks */ = {isa = PBXBuildFile; productRef = 70A7C8352B45B75A00EB6976 /* SequenceImagesLoading */; };
 		70A8A0682B415AEE0068C30B /* String+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A8A0672B415AEE0068C30B /* String+Format.swift */; };
 		70C5FB532B05A20800BDF7F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70C5FB522B05A20800BDF7F0 /* Assets.xcassets */; };
 		70C5FB602B0636BE00BDF7F0 /* Assets_Katespade_Activity.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 70C5FB5F2B0636BE00BDF7F0 /* Assets_Katespade_Activity.bundle */; };
@@ -85,7 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70A8A0652B4159D60068C30B /* SequenceImagesLoading in Frameworks */,
+				70A7C8362B45B75A00EB6976 /* SequenceImagesLoading in Frameworks */,
 				70C5FB972B085A6C00BDF7F0 /* snippet-extract in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,7 +320,7 @@
 			name = DemoSequenceImagesLoading;
 			packageProductDependencies = (
 				70C5FB962B085A6C00BDF7F0 /* snippet-extract */,
-				70A8A0642B4159D60068C30B /* SequenceImagesLoading */,
+				70A7C8352B45B75A00EB6976 /* SequenceImagesLoading */,
 			);
 			productName = DemoSequenceImagesLoading;
 			productReference = 705238392B0522AB005956B6 /* DemoSequenceImagesLoading.app */;
@@ -409,7 +409,7 @@
 				70C5FBA52B08AF3300BDF7F0 /* XCRemoteSwiftPackageReference "CwlCatchException" */,
 				70C5FBA82B08AF5B00BDF7F0 /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */,
 				706E19602B08FC1B00A6DD0C /* XCRemoteSwiftPackageReference "ViewInspector" */,
-				70A8A0632B4159D60068C30B /* XCRemoteSwiftPackageReference "SequenceImagesLoading" */,
+				70A7C8342B45B75A00EB6976 /* XCRemoteSwiftPackageReference "SequenceImagesLoading" */,
 			);
 			productRefGroup = 7052383A2B0522AB005956B6 /* Products */;
 			projectDirPath = "";
@@ -811,7 +811,7 @@
 				version = 0.9.1;
 			};
 		};
-		70A8A0632B4159D60068C30B /* XCRemoteSwiftPackageReference "SequenceImagesLoading" */ = {
+		70A7C8342B45B75A00EB6976 /* XCRemoteSwiftPackageReference "SequenceImagesLoading" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/thebeckz007/SequenceImagesLoading.git";
 			requirement = {
@@ -867,9 +867,9 @@
 			package = 706E19602B08FC1B00A6DD0C /* XCRemoteSwiftPackageReference "ViewInspector" */;
 			productName = ViewInspector;
 		};
-		70A8A0642B4159D60068C30B /* SequenceImagesLoading */ = {
+		70A7C8352B45B75A00EB6976 /* SequenceImagesLoading */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 70A8A0632B4159D60068C30B /* XCRemoteSwiftPackageReference "SequenceImagesLoading" */;
+			package = 70A7C8342B45B75A00EB6976 /* XCRemoteSwiftPackageReference "SequenceImagesLoading" */;
 			productName = SequenceImagesLoading;
 		};
 		70C5FB962B085A6C00BDF7F0 /* snippet-extract */ = {
